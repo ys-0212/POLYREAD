@@ -97,7 +97,7 @@ For GPU users
 pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu121
 ```
 
-Then open your browser at http://127.0.0.1:5000 and upload an image or use your webcam.
+Then open your browser at localhost:8000 and upload an image.
 
 
 
