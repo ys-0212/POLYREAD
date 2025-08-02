@@ -1,0 +1,52 @@
+{
+  "architectures": [
+    "XLMRobertaForSequenceClassification"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "te",
+    "1": "hi",
+    "2": "zh",
+    "3": "en",
+    "4": "ja",
+    "5": "fr",
+    "6": "ar",
+    "7": "ru",
+    "8": "de",
+    "9": "es"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "ar": 6,
+    "de": 8,
+    "en": 3,
+    "es": 9,
+    "fr": 5,
+    "hi": 1,
+    "ja": 4,
+    "ru": 7,
+    "te": 0,
+    "zh": 2
+  },
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "xlm-roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "problem_type": "single_label_classification",
+  "torch_dtype": "float32",
+  "transformers_version": "4.54.1",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
