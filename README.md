@@ -9,15 +9,12 @@
   - [2. Language Detection](#2-language-detection)
   - [3. Translation Module](#3-translation-module)
   - [4. Text-to-Speech (TTS) Synthesis](#4-text-to-speech-tts-synthesis)
-  - [Language-Specific Tuning and Script Adaptation](#language-specific-tuning-and-script-adaptation)
 - [UI/UX and Web Deployment](#uiux-and-web-deployment)
 - [Installation and Usage](#installation-and-usage)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
 - [Team](#team)
 - [License](#license)
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
 
 ## Overview 
 
@@ -101,13 +98,20 @@ pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https
 
 Then open your browser at https://localhost:8000 and upload an image.
 
+<h2> 🚀 &nbsp;Some Tools We Have Used</h2>
+<p align="left">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="vscode" width="35" height="35" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="python" width="35" height="35" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="javascript" width="35" height="35" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/htmx/htmx-original.svg" alt="html" width="35" height="35" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="css" width="35" height="35" />
 
-
+          
 ## Team 
 
 - Yogendra
-- Rishabh
-- Ayushi
+- Rishabh 
+- Ayushi 
 - Shreya
 - Sujith
 
