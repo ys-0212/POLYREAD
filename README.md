@@ -15,7 +15,6 @@
 - [Installation and Usage](#installation-and-usage)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
-  - [Running the Application](#running-the-application)
 - [Team](#team)
 - [License](#license)
 
