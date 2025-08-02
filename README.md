@@ -17,6 +17,9 @@
 - [Team](#team)
 - [License](#license)
 
+
+            <i class="devicon-vscode-plain colored"></i>
+          
 ## Overview 
 
 *PolyOCR* is a robust and modular OCR-to-speech pipeline tailored to extract, understand, and vocalize text from images across multiple languages and scripts. It unifies:
