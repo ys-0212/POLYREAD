@@ -9,17 +9,13 @@
   - [2. Language Detection 🌐](#2-language-detection-🌐)
   - [3. Translation Module 🌍](#3-translation-module-🌍)
   - [4. Text-to-Speech (TTS) Synthesis 🔊](#4-text-to-speech-tts-synthesis-🔊)
-- [Accomplished Enhancements (Previously Future Work) ✅](#accomplished-enhancements-previously-future-work-✅)
   - [Language-Specific Tuning and Script Adaptation ✨](#language-specific-tuning-and-script-adaptation-✨)
-  - [Enhanced UI/UX and Web Deployment 🖥](#enhanced-uiux-and-web-deployment-🖥)
-  - [Real-Time Camera Input Integration 📸](#real-time-camera-input-integration-📸)
+  - [UI/UX and Web Deployment 🖥](#uiux-and-web-deployment-🖥)
   - [Handwritten Text Support 📝](#handwritten-text-support-📝)
-  - [Model Switching Interface 🎛](#model-switching-interface-🎛)
 - [Installation and Usage 🧰](#installation-and-usage-🧰)
   - [Prerequisites 🔧](#prerequisites-🔧)
   - [Setup 🚀](#setup-🚀)
   - [Running the Application ▶](#running-the-application-▶)
-- [Evaluation and Performance 📈](#evaluation-and-performance-📈)
 - [Team 🤝](#team-🤝)
 - [License 📄](#license-📄)
 
@@ -37,92 +33,75 @@ This end-to-end system bridges linguistic gaps, enabling document accessibility 
 ## Features 🌟
 
 - 🖼 *Smart Image Preprocessing*: Automatic resizing, noise removal, and normalization for better OCR performance.
-- 🌏 *Multilingual OCR*: Detects and reads over 80 languages using PaddleOCR.
-- 🌐 *Accurate Language Identification*: Powered by Langdetect, supports 55+ languages.
+- 🌏 *Multilingual OCR*: Detects and reads 10 languages using PaddleOCR.
+- 🌐 *Accurate Language Identification*: Powered by RoBERTa.
 - 🧭 *Seamless Translation*: Converts text to English (or others) with NMT via Google Translate.
 - 🔉 *Offline Text-to-Speech*: Converts any text into clear, offline-playable audio using pyttsx3.
-- 📷 *Live Camera Input*: Enables real-time text detection and translation from your webcam.
-- ✍ *Handwritten Text Support*: Recognizes cursive and historical writing styles.
+- ✍ *Handwritten Text Support*: Recognizes cursive writing styles.
 - ⚙ *Fully Modular Architecture*: Swap or modify components with ease.
 - 🖥 *Intuitive Web UI*: Drag-and-drop upload, visual overlays, inline playback, and download options.
-- 🔁 *OCR Mode Selector*: Switch between General OCR, PP-Structure, or ChatOCR based on input.
+
 
 ## System Architecture 🏗
 
-> *Input Image → Preprocessing → OCR → Language Detection → Translation → TTS → Output*
+> *Input Image → Preprocessing → OCR_1 → Language Detection → OCR_2 → Raw Text Output → Translation → TTS → Audio Output*
 
 Each module is independently tunable and replaceable, enabling future flexibility and customization.
 
 ## Key Components 🧩
 
 ### 1. Optical Character Recognition (OCR) 👁
-- ✅ *PaddleOCR (PP-OCRv4)* ensures multilingual, CPU-efficient text extraction.
-- 🧱 *DBNet*: Detects complex, curved, or rotated text regions.
-- 🔠 *SVTR-LCNet*: Recognizes multilingual scripts, even under poor lighting or resolution.
+- ✅ *PaddleOCR (PP-OCRv4)*.
 
 ### 2. Language Detection 🌐
-- 🧠 *Langdetect* uses Naive Bayes with character n-grams.
-- Supports noisy, short input with 55+ languages.
-
+- 🧠 *RoBERTo*.
+  
 ### 3. Translation Module 🌍
-- 🔄 *Googletrans API* for language translation with Neural Machine Translation.
-- 🧹 Handles chunking, normalization, and code formatting for long inputs.
+- 🔄 *Googletrans API* 
 
 ### 4. Text-to-Speech (TTS) Synthesis 🔊
-- 💻 *pyttsx3* for lightweight, platform-independent speech output.
-- 🎵 Exports audio in .mp3 or .wav format with offline capability.
+- 💻 *pyttsx3* 
 
-## Accomplished Enhancements (Previously Future Work) ✅
 
-### Language-Specific Tuning and Script Adaptation ✨
-- ✏ Normalizes regional scripts for clarity.
-- 🧩 Improves translation coherence.
-- 🧠 Adds punctuation and pronunciation refinements.
 
-### Enhanced UI/UX and Web Deployment 🖥
-- 🌙 Dark & Light Modes
-- 🖱 Drag-and-drop image upload
-- 🔲 Bounding box overlays for OCR
-- 🎧 Inline audio playback and download options
-
-### Real-Time Camera Input Integration 📸
-- 👁 Read signboards, notes, and menus live
-- ⚙ Optimized for low-latency frame capture and streaming
-
-### Handwritten Text Support 📝
-- 📖 Recognizes cursive and unconstrained handwriting
-- 🏛 Supports old manuscripts, notes, and form parsing
-
-### Model Switching Interface 🎛
-- 🔁 Select between OCR modes per document type
-- 🧾 Better results for structured layouts and tables
+## UI/UX and Web Deployment 🖥
+-  Dark & Light Modes
+-  Drag-and-drop image upload
+-  Bounding box overlays for OCR
+-  Complete Raw Text Ouput Box
+-  A line-by-line text output view with Hover-enabled boxes that reveal coordinate information 
+-  A live translation module providing real-time results per selected segment
+-  Inline audio playback and download options
 
 ## Installation and Usage 🧰
 
 ### Prerequisites 🔧
-- Python 3.x
-- Libraries: paddlepaddle, PaddleOCR, langdetect, googletrans, pyttsx3
+- Python 3.10
 
 ### Setup 🚀
-bash
+```bash
 git clone https://github.com/your-username/PolyOCR.git
 cd PolyOCR
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+.\venv\Scripts\activate #windows
 pip install -r requirements.txt
+```
 
+For CPU users
+```bash
+#install pytorch version 2.3.0
+pip install torch==2.3.0+cpu torchvision==0.18.0+cpu torchaudio==2.3.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+```
 
+For GPU users
+```bash
+#install pytorch version 2.3.0 cu121
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu121
+```
 
 Then open your browser at http://127.0.0.1:5000 and upload an image or use your webcam.
 
-## Evaluation and Performance 📈
 
-| Metric                | Value                         |
-|-----------------------|-------------------------------|
-| OCR Accuracy (H-mean) | ~69.2% (on RRC dataset)       |
-| Lang Detection        | High accuracy (major scripts) |
-| Translation           | Manual fluency verification   |
-| TTS Latency           | ~3.2 seconds (mid-range CPU)  |
 
 ## Team 🤝
 
