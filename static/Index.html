@@ -58,28 +58,54 @@
 
         <div id="hero" class="hero">
             <h1>Welcome to PolyRead</h1>
-            <p>Explore our three featured models below. Click on any section to interact with it.</p>
+            <h2 class="subheading">Snap It. Read It. Hear It. Your Image Has a Lot to Say.</h2>
+        
         </div>
 
         <div id="grid" class="grid">
             <article class="clickable-section" data-target="">
                 <h3 class="section-title">PolyRead</h3>
                 <p class="section-text">
-                    A versatile OCR pipeline built using PaddleOCR (PP-OCRv4), ideal for extracting multilingual text
-                    from natural scenes, documents, posters, signs, and more. Supports curved, skewed, noisy, and
-                    low-resolution text regions, with robust bounding box detection and text recognition. Best suited
-                    for general-purpose use across scripts and layouts.
+                    PolyRead is your all-in-one image-to-text sidekick — built on PaddleOCR and packed with smart upgrades.  
+Just drop in any image and it’ll pull out the text, figure out the language, translate it on the fly, and even read it back to you.  
+It handles tricky layouts, shows bounding boxes, and even gives you live hover translations — all with zero setup and max magic.
+
                 </p>
-                <span class="section-badge badge-blue">Click to Use</span>
+                <div class="badge-container">
+  <span class="section-badge badge-blue">Click to Use</span>
+</div>
+
             </article>
         </div>
 
         <div id="disclaimer-section" class="disclaimer-section hidden">
             <div class="disclaimer-content">
-                <h3>⚠️ Disclaimer</h3>
-                <p>This page is a work in progress. Some features may not be fully functional yet.
-                    Please report any issues you encounter.
-                </p>
+                <div class="user-guide">
+                <h3>🚀 How to Use PolyRead</h3>
+<p>
+PolyRead is built to make multilingual text extraction easy, fast, and accurate. Here’s everything you need to know to get started:
+</p>
+
+<ul>
+  <li> <strong>Language Detection:</strong> Auto-detect works for <em>English, Spanish, German, French, Chinese</em>, and <em>Japanese</em>.</li>
+  <li> <strong>Manual Selection:</strong> For <em>Hindi, Telugu, Arabic</em>, and <em>Russian</em>, please select the language from the dropdown before uploading.</li>
+  <li> <strong>Pro Tip:</strong> Even if a language is auto-detected, selecting it manually improves accuracy.</li>
+  <li> <strong>Upload Options:</strong> You can click “Select a file” or simply drag and drop your image into the upload zone.</li>
+</ul>
+
+<hr>
+
+<h4>Try this exciting feature in Output page </h4>
+
+    <ul>
+      <li> Hover to see live translation</li>
+      <li> Hover to view bounding box coordinates</li>
+    </ul>
+
+<p>
+PolyRead is designed to be simple, powerful, and multilingual — no signups, no fluff. Just upload, extract, translate, and listen.
+</p></div>
+
             </div>
 
         </div>
@@ -159,12 +185,16 @@
             <div class="about-content">
                 <h3>About This Page</h3>
                 <p>
-                    PolyOCR is a unified platform built to simplify and enhance multilingual text extraction from
-                    images. Our vision is to create accessible, intelligent tools that bridge the gap between complex Al
-                    technologies and real-world usability. This web interface represents our first step-combining OCR,
-                    translation, and text-to-speech into a seamless, user-friendly pipeline. Designed with a clean dark
-                    theme and responsive layout, it ensures a smooth experience across devices while offering
-                    interactive components and future-ready modularity.
+                    This web app shows off what PolyRead can really do.  
+Built using FastAPI, PaddleOCR, HuggingFace transformers, Google Translate, and pyttsx3, it includes:
+<br><br>
+✔️ Accurate text detection with bounding boxes<br>
+✔️ On-the-fly language detection using transformers<br>
+✔️ Seamless translation to English with script-aware cleaning<br>
+✔️ Natural-sounding text-to-speech output<br>
+✔️ Interactive line hover to show translation<br>
+✔️ Dark/light theme toggle and responsive design<br><br>
+PolyRead is built to make working with multilingual images effortless, fun, and super intuitive.
                 </p>
             </div>
         </div>
