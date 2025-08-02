@@ -129,7 +129,7 @@ function prepareFiles(files) {
 }
 async function detectLanguage(text) {
   if (!text || !text.trim()) {
-    hide(detectedLangContainer);
+    hide(LangContainer);
     return;
   }
   try {
@@ -145,7 +145,7 @@ async function detectLanguage(text) {
 
     const data = await res.json();
     const confidence = (data.score * 100).toFixed(1);
-    detectedLangOutput.textContent = `Auto-Detected: ${data.detectedLanguage} `;
+    detectedLangOutput.textContent = ` ${data.detectedLanguage} `;
     show(detectedLangContainer);
 
   } catch (err) {
@@ -381,5 +381,6 @@ backBtn.addEventListener('click', () => {
 
 
 // ─── Initialize ──────────────────────────────────────────────────────────────
+
 
 document.addEventListener('DOMContentLoaded', initTheme);
