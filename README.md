@@ -11,7 +11,6 @@
   - [4. Text-to-Speech (TTS) Synthesis](#4-text-to-speech-tts-synthesis)
   - [Language-Specific Tuning and Script Adaptation](#language-specific-tuning-and-script-adaptation)
   - [UI/UX and Web Deployment](#uiux-and-web-deployment)
-  - [Handwritten Text Support](#handwritten-text-support)
 - [Installation and Usage](#installation-and-usage)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
