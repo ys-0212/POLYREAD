@@ -96,6 +96,7 @@ For GPU users
 pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu121
 ```
 
+To Start the server
 ```bash
 #run the command to start the server
 uvicorn server:app --host 0.0.0.0 --port 8000 --reload --log-level debug
