@@ -77,7 +77,7 @@ Each module is independently tunable and replaceable, enabling future flexibilit
 
 ### Setup 
 ```bash
-git clone https://github.com/your-username/PolyOCR.git
+git clone https://github.com/your-username/POLYREAD.git
 cd POLYREAD
 python -m venv venv
 .\venv\Scripts\Activate #windows
