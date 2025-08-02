@@ -1,4 +1,4 @@
-# PolyOCR: A Robust Multilingual OCR-to-Speech Pipeline with Language Detection and Translation 
+# POLYREAD: A Robust Multilingual OCR-to-Speech Pipeline with Language Detection and Translation 
 
 ## Table of Contents 
 - [Overview](#overview)
