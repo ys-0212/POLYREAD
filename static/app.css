@@ -3,6 +3,52 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Example CSS */
+.subheading {
+  font-size: 2rem;  /* Adjust between h1 (~2.5rem) and p (~1rem) */
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 1rem;
+}
+.center-badge {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+.user-guide {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  text-align: left;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px var(--shadow);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.user-guide ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.user-guide li {
+  margin-bottom: 0.5rem;
+}
+
+.user-guide h3,
+.user-guide h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.user-guide hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--border-color);
+}
 
 :root {
     /* Light theme variables (default) */
