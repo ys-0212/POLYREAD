@@ -80,7 +80,7 @@ Each module is independently tunable and replaceable, enabling future flexibilit
 git clone https://github.com/your-username/PolyOCR.git
 cd PolyOCR
 python -m venv venv
-.\venv\Scripts\activate #windows
+.\venv\Scripts\Activate #windows
 pip install -r requirements.txt
 ```
 
