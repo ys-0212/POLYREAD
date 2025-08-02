@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyRead</title>
+    <script>
+        (function () {
+            let theme;
+            // Priority 1: Check the URL for a theme parameter.
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const themeFromUrl = urlParams.get('theme');
+                if (themeFromUrl === 'dark' || themeFromUrl === 'light') {
+                    theme = themeFromUrl;
+                }
+            } catch (e) { /* Fails silently */ }
+
+            // Priority 2: If no theme in URL, check localStorage.
+            if (!theme) {
+                try {
+                    theme = localStorage.getItem('theme');
+                } catch (e) { /* Fails silently */ }
+            }
+
+            // If a theme was determined, apply it immediately.
+            if (theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+        })();
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="Index.html" class="logo"><img src="/images/polyread_brandname.png" alt="" width="150px"></a>
+
+            <div>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg class="theme-icon" id="themeIcon" viewBox="0 0 24 24">
+                        <path
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main id="root" class="main-content">
+
+        <div id="hero" class="hero">
+            <h1>Welcome to PolyRead</h1>
+            <p>Explore our three featured models below. Click on any section to interact with it.</p>
+        </div>
+
+        <div id="grid" class="grid">
+            <article class="clickable-section" data-target="">
+                <h3 class="section-title">PolyRead</h3>
+                <p class="section-text">
+                    A versatile OCR pipeline built using PaddleOCR (PP-OCRv4), ideal for extracting multilingual text
+                    from natural scenes, documents, posters, signs, and more. Supports curved, skewed, noisy, and
+                    low-resolution text regions, with robust bounding box detection and text recognition. Best suited
+                    for general-purpose use across scripts and layouts.
+                </p>
+                <span class="section-badge badge-blue">Click to Use</span>
+            </article>
+        </div>
+
+        <div id="disclaimer-section" class="disclaimer-section hidden">
+            <div class="disclaimer-content">
+                <h3>⚠️ Disclaimer</h3>
+                <p>This page is a work in progress. Some features may not be fully functional yet.
+                    Please report any issues you encounter.
+                </p>
+            </div>
+
+        </div>
+
+        <div id="langSelectContainer" class="lang-select hidden">
+            <label for="langSelect">🌐 Select Language (optional):</label>
+            <select id="langSelect">
+                <option value="">Auto Detect</option>
+                <option value="en">English</option>
+                <option value="ru">Russian</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="es">Spanish</option>
+                <option value="ch">Chinese</option>
+                <option value="japan">Japanese</option>
+                <option value="devanagari">Hindi</option>
+                <option value="arabic">Arabic</option>
+                <option value="te">Telugu</option>
+            </select>
+        </div>
+
+
+
+        <div id="dropZone" class="drop-zone hidden">
+            <p>Drag & Drop an image here</p>
+            <input type="file" id="fileInput" accept="image/*" class="hidden" />
+            <button id="chooseFileBtn" class="btn-upload">Select a file</button> <img id="imgPreview"
+                class="hidden preview-img" alt="Image preview"> <button id="uploadBtn" class="hidden">Submit</button>
+        </div>
+
+        <div id="resultContainer" class="hidden">
+            <section class="output-section">
+                <h2>Model Output</h2>
+                <div id="rawOutput" class="output-box" contenteditable="false"></div>
+                <div id="detectedLangContainer" class="hidden lang-display">
+                    <strong>Detected Language:</strong> <span id="detectedLangOutput"></span>
+                </div>
+                <button data-copy="#rawOutput">Copy</button>
+                <button data-download="#rawOutput" data-filename="output.txt">Download</button>
+            </section>
+
+            <section id="previewSection" class="preview-section hidden">
+                <div class="preview-container">
+                    <div class="image-box">
+                        <img id="outlinedImage" alt="Detected Output" />
+                    </div>
+                    <div class="text-lines-box" id="lineOutputs"></div>
+                </div>
+            </section>
+
+
+            <section class="translate-section">
+                <button id="translateBtn">Translate</button>
+
+                <div id="translatedOutput" class="output-box hidden"></div>
+
+                <button data-copy="#translatedOutput" class="hidden">Copy</button>
+                <button data-download="#translatedOutput" data-filename="translated.txt"
+                    class="hidden">Download</button>
+            </section>
+
+
+
+            <section id="ttsSection" class="tts-section hidden">
+                <p class="tts-disclaimer">
+                    ℹ️ For best results, please translate the text to English before generating speech.
+                </p>
+                <button id="ttsBtn">Generate Speech</button>
+                <audio id="ttsAudio" controls class="hidden"></audio>
+            </section>
+
+            <button id="backBtn">Back</button>
+        </div>
+
+
+        <div class="about-section">
+            <div class="about-content">
+                <h3>About This Page</h3>
+                <p>
+                    PolyOCR is a unified platform built to simplify and enhance multilingual text extraction from
+                    images. Our vision is to create accessible, intelligent tools that bridge the gap between complex Al
+                    technologies and real-world usability. This web interface represents our first step-combining OCR,
+                    translation, and text-to-speech into a seamless, user-friendly pipeline. Designed with a clean dark
+                    theme and responsive layout, it ensures a smooth experience across devices while offering
+                    interactive components and future-ready modularity.
+                </p>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <p><img src="/images/polyread_brandname.png" alt="" width="60px"> Built with HTML, CSS, and JavaScript.
+        </p>
+    </footer>
+
+    <div id="loadingOverlay" class="hidden">
+        <div class="loading-spinner"></div>
+        <p>Processing image, please wait…</p>
+    </div>
+
+    <div id="coord-tooltip" class="hidden"></div>
+    <div id="trans-tooltip" class="hidden"></div>
+    <div id="zoomModal" class="modal hidden">
+        <span class="modal-close-btn">&times;</span>
+        <img class="modal-content" id="zoomedInImage">
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
